@@ -1,0 +1,20 @@
+:root {
+    --background: #24292e;
+    --header: #2f363d;
+    --primary: #003f7a;
+    --secondary: #ef6300;
+    --light-gray: #b6b6b6;
+    --medium-gray: #686868;
+    --dark-gray: #424242;
+
+    --green: #5cb85c;
+    --yellow: #f0ad4e;
+    --red: #d9534f;
+    --light-blue: #5bc0de;
+
+    --header-opacity: #3a4046c0;
+    
+
+
+    --user-status: var(--green);
+}

@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
+@import url(../css/variables.css);
 
 html, body {
     width: 100%;
-
     margin: 0px;
     padding: 0px;
+    background-color: var(--background);
 }
 
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0px;
 }
 
 header {
@@ -16,99 +18,370 @@ header {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 70px;
-    background-color: #003f7a;
-    color: white;
-}
-
-header .logo {
-    width: 56px;
-    cursor: pointer;
-    margin-right: 18px;
-    margin-left: 10px;
-    line-height: 100%;
-    padding-block: 6px;
+    height: 80px;
+    background-color: var(--header);
+    padding-block: 15px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
 }
 
 header > div {
     display: flex;
     align-items: center;
+    height: 100%;
+}
+
+header img {
+    width: 55px;
+    cursor: pointer;
+    margin-inline: 30px 15px;
+}
+
+header img ~ h3 {
+    color: white;
+    font-weight: normal;
+    cursor: default;
+}
+
+header img ~ svg {
+    cursor: pointer;
+    color: white;
+    stroke-width: 1;
+}
+
+header .profile::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--user-status);
+    border-radius: 50%;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0 0 0 1px var(--light-gray);
+    border: 2px solid var(--header);
+}
+
+header .vl {
+    height: 90%;
+    border-left: 1px solid var(--medium-gray);
+    margin-inline: 20px;
+}
+
+.sidebar {
+    position: fixed;
+    max-width: 300px;
+    top: 80px;
+    left: 0;
     width: 100%;
     height: 100%;
-    border: 1px solid red;
+    background: var(--header);
+    overflow: hidden;
+    padding-top: 30px;
 }
 
-.header-left {
+.sidebar-item {
     display: flex;
     align-items: center;
-    border: 1px solid green;
-    height: 100%;
-}
-
-.header-left > ion-icon:nth-child(1) {
-    font-size: 20px;
-    height: 100%;
-    padding-inline: 20px;
+    width: 100%;
     cursor: pointer;
+    padding: 20px 25px;
+    color: white;
+    border-left: 0px solid var(--secondary);
+    position: relative;
+    transition: .25s;
 }
 
-.header-left > ion-icon:nth-child(2) {
-    font-size: 20px;
-    height: 100%;
-    padding-inline: 10px;
+.sidebar-item:hover {
+    background: var(--header-opacity);
+    border-left: 8px solid var(--secondary);
+    transition: .25s;
+}
+
+.sidebar-item ion-icon {
+    font-size: 22px;
+    min-width: 22px;
+    margin-right: 20px;
+    --ionicon-stroke-width: 25px;
+}
+
+.sidebar-item p {
+    font-size: 15px;
+    text-overflow: hidden;
+    white-space: nowrap;
+}
+
+.expand-item {
+    position: absolute;
+    left: 260px;
+    stroke-width: 1.2;
+}
+
+.expanded-item .sidebar-item {
+    padding-left: 50px;
+}
+
+.expanded {
+    background: var(--header-opacity);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.profile .feather-user {
+    position: absolute;
+    transform: translateY(3px);
+    width: 26px;
+    height: 26px;
+}
+
+.notifications {
+    margin-inline: 30px;
     cursor: pointer;
+    position: relative;
+    color: var(--light-gray);
 }
 
-.header-left > ion-icon:hover {
-    background-color: #00396e;
-}
-
-.dropdown {
+.quantity {
     display: flex;
     align-items: center;
-    height: 100%;
-    padding-inline: 5px;
-}
-
-.dropdown:hover{
-    background-color: #00396e;
-}
-
-.dropdown ion-icon {
-    margin-left: 5px;
+    justify-content: center;
+    content: '1';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: var(--red);
+    border-radius: 50%;
+    right: 0;
+    top: 0;
+    transform: translate(3px, -3px);
     font-size: 10px;
+    color: white;
 }
 
-.dropdown p {
+.profile .feather-circle {
+    width: 38px;
+    height: 38px;
+    stroke-width: 1.2;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-inline: 30px;
+    position: relative;
+    color: var(--light-gray);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.profile-expand {
+    max-width: 280px;
+    width: 100%;
+    background-color: var(--header);
+    position: fixed;
+    top: calc(80px + 5px);
+    right: 5px;
+    padding-top: 15px;
+    box-sizing: border-box;
+}
+
+.profile-expand > p {
+    margin-block: 15px;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+}
+
+.profile-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.profile-item:hover {
+    background-color: var(--header-opacity);
+}
+
+.profile-item .feather {
+    margin-inline: 10px 15px;
+    stroke-width: 1.1;
+    width: 22px;
+    height: 22px;
+}
+
+.profile-item ion-icon {
+    margin-inline: 10px 15px;
+    font-size: 22px;
+    min-width: 22px;
+    --ionicon-stroke-width: 22px;
+}
+
+.profile-item .feather-check {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    right: 15px;
+}
+
+.profile-item p {
     font-size: 14px;
 }
 
-.dropdown p:hover {
-    font-weight: bold;
+.profile-expand .hl,
+.notifications-expand .hl {
+    width: 90%;
+    height: 1px;
+    background-color: var(--dark-gray);
+    margin: 8px auto;
 }
 
-/* header > div {
+.profile-item .feather-circle {
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+}
+
+.profile-expand .profile-item:nth-child(6) .feather-circle {
+    fill: var(--green);
+    color: var(--green);
+}
+
+.profile-expand .profile-item:nth-child(7) .feather-circle {
+    fill: var(--yellow);
+    color: var(--yellow);
+}
+
+.profile-expand .profile-item:nth-child(8) .feather-circle {
+    fill: var(--red);
+    color: var(--red);
+}
+
+.profile-expand .user-status {
+    padding-left: 20px;
+}
+
+.profile-expand .user-status .feather-check {
+    display: none;
+}
+
+.profile-expand .user-status:nth-child(6) .feather-check {
+    display: block;
+}
+
+.profile-expand .profile-item:last-child {
+    margin-bottom: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+.notifications-expand {
+    max-width: 380px;
+    width: 100%;
+    max-height: 300px;
+    height: 500px;
+    background-color: var(--header);
+    position: fixed;
+    top: calc(80px + 5px);
+    right: 5px;
+    box-sizing: border-box;
+}
+
+.notifications-expand > p {
+    margin-block: 15px;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+}
+
+.notifications-expand > div {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-block: 10px;
 }
 
-.dropdown {
+.notifications-expand > .commands svg {
+    stroke-width: 1.2;
+    width: 20px;
+    height: 20px;
+    padding: 8px 20px;
+    border: 1px solid var(--medium-gray);
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.notifications-expand > .commands svg:hover {
+    background-color: var(--header-opacity);
+    transition: .25s;
+}
+
+.notifications-list {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 170px;
 }
 
-.dropdown:hover {
-    font-weight: bold;
+.notifications-list::-webkit-scrollbar {
+    width: 5px;           
+}
+  
+.notifications-list::-webkit-scrollbar-track {
+    background: transparent;        
+}
+  
+.notifications-list::-webkit-scrollbar-thumb {
+    background-color: var(--primary);    
+    border-radius: 20px; 
+}
+
+.notifications-item {
+    margin-block: 10px;
 }
 
 
-
-header > div:nth-child(1) > ion-icon {
-    padding: 20px;
-    padding-block: 24px;
-    font-size: 22px;
-}
-
-header > div:nth-child(1) > ion-icon:hover {
-    background-color: #012d8b;
-} */

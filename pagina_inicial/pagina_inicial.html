@@ -8,6 +8,11 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <link rel="shortcut icon" href="//lms.infnet.edu.br/moodle/pluginfile.php/1/theme_remui/faviconurl/1658778943/unnamed.png">
     <link rel="stylesheet" href="pagina_inicial.css">
 
@@ -15,26 +20,292 @@
 </head>
 <body>
 
-    <header>
-        <img class="logo" src="//lms.infnet.edu.br/moodle/pluginfile.php/1/theme_remui/logomini/1658778943/infnet.png" alt="logo infnet">
 
+    <header>
         <div>
-            <div class="header-left">
-                <ion-icon name="menu"></ion-icon>
-                <ion-icon name="scan-sharp"></ion-icon>
- 
-                <div class="dropdown">
-                    <p>Recente</p>
-                    <ion-icon name="caret-down-outline"></ion-icon>
-                </div>
+            <img src="//lms.infnet.edu.br/moodle/pluginfile.php/1/theme_remui/logomini/1658778943/infnet.png" alt="Logo Infnet">
+            <h3>Instituto Infnet</h3>
+            <div class="vl"></div>
+            <i data-feather="menu" class="show-sidebar" onclick="javascript:showSideBar()"></i>
+        </div>
+        
+        <div>
+            <div class="notifications">
+                <i data-feather="bell"></i>
+                <p class="quantity">5</p>
             </div>
             
-            <div class="header-right">
-                
+            <div class="profile">
+                <i data-feather="user"></i>
+                <i data-feather="circle"></i>
             </div>
+            
         </div>
     </header>
 
+    <div class="sidebar">
+        <div class="sidebar-item">
+            <ion-icon name="home-outline"></ion-icon>
+            <p>Página Inicial</p>
+        </div>
+
+        <div class="sidebar-item">
+            <ion-icon name="book-outline"></ion-icon>
+            <p>Minhas disciplinas</p>
+        </div>
+
+        <div class="sidebar-item">
+            <ion-icon name="calendar-outline"></ion-icon>
+            <p>Minhas entregas</p>
+        </div>
+
+        <div class="sidebar-item">
+            <ion-icon name="school-outline"></ion-icon>
+            <p>Meus cursos</p>
+            <i data-feather="chevron-right" class="expand-item"></i>
+        </div>
+
+        <div class="expanded-item">
+            <div class="sidebar-item">
+                <ion-icon name="school-outline"></ion-icon>
+                <p>Interatividade em Páginas Web [22E4_3]</p>
+            </div>
+            <div class="sidebar-item">
+                <ion-icon name="school-outline"></ion-icon>
+                <p>Planejamento de Curso e Carreira [22E3_1]</p>
+            </div>
+            <div class="sidebar-item">
+                <ion-icon name="school-outline"></ion-icon>
+                <p>Programação Web com HTML 5 e CSS 3 [22E3_1]</p>
+            </div>
+            <div class="sidebar-item">
+                <ion-icon name="school-outline"></ion-icon>
+                <p>Programação Web com JavaScript I [22E3_2]</p>
+            </div>
+            <div class="sidebar-item">
+                <ion-icon name="school-outline"></ion-icon>
+                <p>Programação Web com JavaScript II [22E4_4]</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="profile-expand">
+        <p>Olá, Lucas Simões</p>
+
+        <div class="profile-item">
+            <i data-feather="user"></i>
+            <p>Ver perfil</p>
+        </div>
+
+        <div class="profile-item">
+            <ion-icon name="school-outline"></ion-icon>
+            <p>Minhas disciplinas</p>
+        </div>
+
+        <div class="profile-item">
+            <ion-icon name="timer-outline"></ion-icon>
+            <p>Meu histórico</p>
+        </div>
+
+        <div class="hl"></div>
+
+        <div class="profile-item user-status">
+            <i data-feather="circle"></i>
+            <p>Disponível</p>
+            <i data-feather="check"></i>
+        </div>
+
+        <div class="profile-item user-status">
+            <i data-feather="circle"></i>
+            <p>Ausente</p>
+            <i data-feather="check"></i>
+        </div>
+
+        <div class="profile-item user-status">
+            <i data-feather="circle"></i>
+            <p>Indisponível</p>
+            <i data-feather="check"></i>
+        </div>
+
+        <div class="hl"></div>
+
+        <div class="profile-item">
+            <i data-feather="settings"></i>
+            <p>Configurações</p>
+        </div>
+
+        <div class="profile-item">
+            <i data-feather="log-out"></i>
+            <p>Sair</p>
+        </div>
+    </div>
+
+
+    <div class="notifications-expand">
+        <p>Notificações</p>
+
+        <div class="hl"></div>
+
+        <div class="commands">
+            <a href="javascript:markAllRead()" title="Marcar tudo como lido" aria-label="Marcar tudo como lido">
+                <i data-feather="check" aria-hidden="true"></i>
+            </a>
+            
+            <a href="" title="Preferências" aria-label="Preferências">
+                <i data-feather="settings" title="Preferências"></i>
+            </a>
+
+            <a href="" title="Ver tudo" aria-label="Ver tudo">
+                <i data-feather="eye" title="Ver tudo"></i>
+            </a>
+        </div>
+
+        <div class="hl"></div>
+
+        <div class="notifications-list">
+            <div class="notifications-item">
+                notificação 1
+            </div>
+    
+            <div class="notifications-item">
+                notificação 2
+            </div>
+    
+            <div class="notifications-item">
+                notificação 3
+            </div>
+    
+            <div class="notifications-item">
+                notificação 4
+            </div>
+    
+            <div class="notifications-item">
+                notificação 5
+            </div>
+    
+            <div class="notifications-item">
+                notificação 6
+            </div>
+    
+            <div class="notifications-item">
+                notificação 7
+            </div>
+    
+            <div class="notifications-item">
+                notificação 8
+            </div>
+    
+            <div class="notifications-item">
+                notificação 9
+            </div>
+    
+            <div class="notifications-item">
+                notificação 10
+            </div>
+        </div>
+
+        <p>Você não tem nenhuma notificação</p>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>a</p>
+
+
     <script src="pagina_inicial.js"></script>
+    <script src="../js/feather.js"></script>
 </body>
 </html>
