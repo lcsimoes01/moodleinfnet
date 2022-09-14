@@ -119,3 +119,28 @@ $('.expand-item').parent().click(function() {
     $(this).toggleClass('expanded')
     $('.expanded-item .sidebar-item').toggleClass('expanded')
 })
+
+
+
+
+
+
+
+
+
+var owl = $('.owl-carousel');
+owl.owlCarousel({
+    items:1,
+    loop:true,
+    margin:10,
+    nav:true,
+    autoplay:true,
+    autoplayTimeout:4000,
+    autoplayHoverPause:true,
+});
+
+
+
+
+$('span[aria-label=Next]').html('<i data-feather="chevron-right"></i>')
+$('span[aria-label=Previous]').html('<i data-feather="chevron-left"></i>')
